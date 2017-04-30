@@ -1,0 +1,47 @@
+﻿@using TrainingDay.ViewModels
+@model AddFeedbackViewModel
+
+
+<h1>Add Training Feedback</h1>
+
+<form asp-controller="Feedback" asp-action="Add" method="Post">
+
+
+    <div class="form-group">
+        <label asp-for="ILikeNotes"></label>
+        <input class="form-control" asp-for="ILikeNotes" />
+        <span asp-validation-for="ILikeNotes"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="IWishNotes"></label>
+        <input class="form-control" asp-for="IWishNotes" />
+        <span asp-validation-for="IWishNotes"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ManagerNotes"></label>
+        <input class="form-control" asp-for="ManagerNotes" />
+        <span asp-validation-for="ManagerNotes"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Accomplishment"></label>
+        <select asp-for="Accomplishment" asp-items="@Model.AccomplishmentRatings"></select>
+        <span asp-validation-for="Accomplishment"></span>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <input type="submit" value="Leave Feedback" />
+
+</form>
