@@ -10,13 +10,21 @@ namespace TrainingDay.ViewModels
 {
     public class AddFeedbackViewModel
     {
-        public AccomplishmentRating Accomplishment { get; set; }
-        public List<SelectListItem> AccomplishmentRatings { get; set; }
+        public string ApplicationUserID { get; set; } 
 
+        public AccomplishmentRating Accomplishment { get; set; }
+        public List<SelectListItem> AccomplishmentRatings { get; set; }        
 
         public ConfidenceRating Confidence { get; set; }
         public List<SelectListItem> ConfidenceRatings { get; set; }
+        
+        //public List<ApplicationUser> UserList { get; set; }
+        public List<SelectListItem> Users { get; set; }       
 
+
+        [Required]
+        [Display(Name = "Focus Area")]
+        public string Focus { get; set; }
 
         [Required]
         [Display(Name = "I Like Notes")]
@@ -27,13 +35,19 @@ namespace TrainingDay.ViewModels
         public string IWishNotes { get; set; }
 
         [Display(Name ="Manager Notes")]
-        public string ManagerNotes { get; set; }  
-        
-                  
+        public string ManagerNotes { get; set; }
 
+        [Required]
+        public string ManagerID { get; set; }
 
-        public AddFeedbackViewModel()
-        {
+        [Required]
+        public string MentorID { get; set; }
+
+        public AddFeedbackViewModel() { }
+
+        public AddFeedbackViewModel(IEnumerable<ApplicationUser> userList)
+        {            
+
             AccomplishmentRatings = new List<SelectListItem>();
 
             // <option value="0">Behind</option>
@@ -56,8 +70,6 @@ namespace TrainingDay.ViewModels
                 Value = ((int)AccomplishmentRating.Ahead).ToString(),
                 Text = AccomplishmentRating.Ahead.ToString()
             });
-
-
 
             ConfidenceRatings = new List<SelectListItem>();
 
@@ -82,14 +94,18 @@ namespace TrainingDay.ViewModels
                 Text = ConfidenceRating.Green.ToString()
             });
 
+            Users = new List<SelectListItem>();
 
-
-
-
-
-
-
+            foreach (var user in userList)
+            {
+                Users.Add(new SelectListItem
+                {   Value = user.Id.ToString(),
+                    Text = user.AssociateName.ToString()
+                });
+            }
 
         }
+
+    
     }
 }

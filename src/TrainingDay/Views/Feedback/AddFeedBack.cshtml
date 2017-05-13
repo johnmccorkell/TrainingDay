@@ -4,15 +4,32 @@
 
 <h1>Add Training Feedback</h1>
 
-<form asp-controller="Feedback" asp-action="Add" method="Post">
+<form asp-controller="Feedback" asp-action="AddFeedback" method="Post">
 
+
+    <div class="form-group">
+        <label asp-for="MentorID"></label>
+        <select asp-for="MentorID" asp-items="@Model.Users"></select>
+        <span asp-validation-for="MentorID"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ManagerID"></label>
+        <select asp-for="ManagerID" asp-items="@Model.Users"></select>
+        <span asp-validation-for="ManagerID"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Focus"></label>
+        <input class="form-control" asp-for="Focus" />
+        <span asp-validation-for="Focus"></span>
+    </div>
 
     <div class="form-group">
         <label asp-for="ILikeNotes"></label>
         <input class="form-control" asp-for="ILikeNotes" />
         <span asp-validation-for="ILikeNotes"></span>
     </div>
-
 
     <div class="form-group">
         <label asp-for="IWishNotes"></label>
@@ -32,13 +49,11 @@
         <span asp-validation-for="Accomplishment"></span>
     </div>
 
-
-
-
-
-
-
-
+    <div class="form-group">
+        <label asp-for="Confidence">Rate Your Confidence Level </label>
+        <select asp-for="Confidence" asp-items="@Model.ConfidenceRatings"></select>
+        <span asp-validation-for="Confidence"></span>
+    </div>
 
 
 

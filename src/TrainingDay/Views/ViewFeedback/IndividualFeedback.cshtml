@@ -1,0 +1,18 @@
+﻿@using TrainingDay.ViewModels
+@model IndividualFeedbackViewModel
+
+    
+
+        <p><h2>Entry Date: @Model.IndividualFeedback.EntryDate</h2></p>
+        <p><h2>Provided by: @Model.FeedbackProviderName</h2></p>
+        <p><h2>Focus Area: @Model.IndividualFeedback.Focus</h2></p>
+        <p><h2>Confidence Rating: @Model.IndividualFeedback.Confidence</h2></p>
+        <p><h2>Accomplishment Rating: @Model.IndividualFeedback.Accomplishment</h2></p>
+        <p><h2>I Like: @Model.IndividualFeedback.ILikeNotes</h2></p>
+        <p><h2>I Wish: @Model.IndividualFeedback.IWishNotes</h2></p>
+        @if (Model.IndividualFeedback.ManagerNotes != null)
+        {
+        <p><h2>Manager Notes: @Model.IndividualFeedback.ManagerNotes</h2></p>}
+
+
+    

@@ -8,9 +8,10 @@ using TrainingDay.Data;
 namespace TrainingDay.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170511165124_Final")]
+    partial class Final
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -129,8 +130,6 @@ namespace TrainingDay.Data.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
-                    b.Property<string>("AssociateName");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
@@ -142,6 +141,8 @@ namespace TrainingDay.Data.Migrations
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
+
+                    b.Property<string>("Name");
 
                     b.Property<string>("NormalizedEmail")
                         .HasAnnotation("MaxLength", 256);

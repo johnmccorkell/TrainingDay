@@ -47,11 +47,11 @@ namespace TrainingDay.Data.Migrations
                 table: "AspNetUsers",
                 nullable: true);
 
-            migrationBuilder.AddColumn<int>(
-                name: "Role",
-                table: "AspNetUsers",
-                nullable: false,
-                defaultValue: Role.Learner);
+            //migrationBuilder.AddColumn<int>(
+            //    name: "Role",
+            //    table: "AspNetUsers",
+            //    nullable: false,
+            //    defaultValue: Role.Learner);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

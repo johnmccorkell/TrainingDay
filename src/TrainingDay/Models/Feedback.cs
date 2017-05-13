@@ -12,11 +12,11 @@ namespace TrainingDay.Models
 
         public DateTime EntryDate { get; set; }
 
-        public int ApplicationUserID { get; set; }
+        public string ApplicationUserID { get; set; }
 
-        public int MentorID { get; set; }
+        public string MentorID { get; set; }
 
-        public int ManagerID { get; set; }
+        public string ManagerID { get; set; }
 
         public string Focus { get; set; }
 

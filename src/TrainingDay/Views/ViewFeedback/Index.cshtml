@@ -1,0 +1,16 @@
+﻿@model IList<TrainingDay.Models.Feedback>
+
+<ul>
+
+    @foreach (var feedback in Model)
+    {
+        <li>
+            <a asp-controller="ViewFeedback" asp-action="IndividualFeedback" asp-route-id="@feedback.ID">@feedback.EntryDate</a>
+        </li>
+
+    }
+
+</ul>
+
+
+

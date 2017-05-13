@@ -5,11 +5,22 @@ using System.Threading.Tasks;
 
 namespace TrainingDay.Models
 {
-    public enum Role
+    public class EmailNotification
     {
-        Learner,
-        Mentor,
-        Manager
+
+
+        public static SendEmail()
+
+        {
+
+
+
+
+
+        }
+
+
+
 
     }
 }

@@ -15,11 +15,7 @@ namespace TrainingDay.Data
 
         public DbSet<Feedback> Feedbacks { get; set; }
 
-        public DbSet<AccomplishmentRating> AccomplishmentRatings { get; set; }
 
-        public DbSet<ConfidenceRating> ConfidenceRatings { get; set; }
-
-        
         
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
