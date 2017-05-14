@@ -16,14 +16,14 @@ namespace TrainingDay.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Training Day-Drive your Growth";
 
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "John McCorkell";
 
             return View();
         }

@@ -2,17 +2,17 @@
 @model IndividualFeedbackViewModel
 
     
-
-        <p><h2>Entry Date: @Model.IndividualFeedback.EntryDate</h2></p>
-        <p><h2>Provided by: @Model.FeedbackProviderName</h2></p>
-        <p><h2>Focus Area: @Model.IndividualFeedback.Focus</h2></p>
-        <p><h2>Confidence Rating: @Model.IndividualFeedback.Confidence</h2></p>
-        <p><h2>Accomplishment Rating: @Model.IndividualFeedback.Accomplishment</h2></p>
-        <p><h2>I Like: @Model.IndividualFeedback.ILikeNotes</h2></p>
-        <p><h2>I Wish: @Model.IndividualFeedback.IWishNotes</h2></p>
+        <h5>
+        <p><strong>Entry Time:</strong> @Model.IndividualFeedback.EntryDate</p></br>        
+        <p><strong>Provided by:</strong> @Model.FeedbackProviderName</p></br> 
+        <p><strong>Focus Area:</strong> @Model.IndividualFeedback.Focus</p></br> 
+        <p><strong>Confidence Rating:</strong> @Model.IndividualFeedback.Confidence</p></br> 
+        <p><strong>Accomplishment Rating:</strong> @Model.IndividualFeedback.Accomplishment</p></br> 
+        <p><strong>I Like Notes: </strong>@Model.IndividualFeedback.ILikeNotes</p></br> 
+        <p><strong>I Wish Notes: </strong>@Model.IndividualFeedback.IWishNotes</p></br> 
         @if (Model.IndividualFeedback.ManagerNotes != null)
         {
-        <p><h2>Manager Notes: @Model.IndividualFeedback.ManagerNotes</h2></p>}
+        <p><strong>Manager Notes: </strong>@Model.IndividualFeedback.ManagerNotes</p>}
 
-
+        </h5>
     

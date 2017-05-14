@@ -8,55 +8,56 @@
 
 
     <div class="form-group">
-        <label asp-for="MentorID"></label>
-        <select asp-for="MentorID" asp-items="@Model.Users"></select>
+        <label asp-for="MentorID" class="col-md-2 control-label">Mentor's Name</label>
+        <select asp-for="MentorID"  asp-items="@Model.Users"></select>
         <span asp-validation-for="MentorID"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="ManagerID"></label>
+        <label asp-for="ManagerID" class="col-md-2 control-label">Manager's Name</label>
         <select asp-for="ManagerID" asp-items="@Model.Users"></select>
         <span asp-validation-for="ManagerID"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="Focus"></label>
-        <input class="form-control" asp-for="Focus" />
-        <span asp-validation-for="Focus"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="ILikeNotes"></label>
-        <input class="form-control" asp-for="ILikeNotes" />
-        <span asp-validation-for="ILikeNotes"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="IWishNotes"></label>
-        <input class="form-control" asp-for="IWishNotes" />
-        <span asp-validation-for="IWishNotes"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="ManagerNotes"></label>
-        <input class="form-control" asp-for="ManagerNotes" />
-        <span asp-validation-for="ManagerNotes"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Accomplishment"></label>
+        <label asp-for="Accomplishment" class="col-md-3 control-label">Sense of Accomplishment</label>
         <select asp-for="Accomplishment" asp-items="@Model.AccomplishmentRatings"></select>
         <span asp-validation-for="Accomplishment"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="Confidence">Rate Your Confidence Level </label>
+        <label asp-for="Confidence" class="col-md-3 control-label">Confidence Moving Forward</label>
         <select asp-for="Confidence" asp-items="@Model.ConfidenceRatings"></select>
         <span asp-validation-for="Confidence"></span>
     </div>
 
+    <div class="form-group">
+        <label asp-for="Focus" class="col-md-2 control-label"></label> <i>Describe the focus/concentration of your training.</i>
+        <input class="form-control" asp-for="Focus" />        
+        <span asp-validation-for="Focus"></span>        
+    </div>
 
+    <div class="form-group">
+        <label asp-for="ILikeNotes" class="col-md-2 control-label"></label><i>Describe what you liked about your activities.</i>
+        <input class="form-control"  asp-for="ILikeNotes" />
+        <span asp-validation-for="ILikeNotes"></span>
+    </div>
 
+    <div class="form-group">
+        <label asp-for="IWishNotes" class="col-md-2 control-label"></label><i>Describe what you would like to change about your activities.</i>
+        <input class="form-control" asp-for="IWishNotes" />
+        <span asp-validation-for="IWishNotes"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ManagerNotes" class="col-md-2 control-label"></label><i>Use this area to share confidential feedback or concerns with your manager.</i>
+        <input class="form-control" asp-for="ManagerNotes" />
+        <span asp-validation-for="ManagerNotes"></span>
+    </div>
+
+    
+
+    
     <input type="submit" value="Leave Feedback" />
 
 </form>

@@ -16,23 +16,26 @@ namespace TrainingDay.Controllers
     [Authorize]
     public class FeedbackController : Controller
     {
-
+        
         private ApplicationDbContext context;
 
         public FeedbackController(ApplicationDbContext dbContext)
         {
             context = dbContext;
         }
+
+        //options to create or review feedback
         public IActionResult Index()
         {
 
             return View();
         }
 
-
+        //form to create feedback
         [HttpGet]       
         public IActionResult AddFeedback()
-        {
+        {   
+            //create list of users for select list options
             IEnumerable<ApplicationUser> userList = context.ApplicationUsers.ToList();
             AddFeedbackViewModel addFeedbackViewModel = new AddFeedbackViewModel(userList);
 
@@ -40,18 +43,20 @@ namespace TrainingDay.Controllers
         }
 
 
-
+        //processes feedback form, creates and saves new feedback if valid, sends emails to manager and mentor
         [HttpPost]        
         public IActionResult AddFeedback(AddFeedbackViewModel addFeedbackViewModel)
         {    
             if (ModelState.IsValid)
-            {   
+            {   //find identity of logged in user 
                 string UsersName= User.Identity.Name;
+                //call database for user object
                 ApplicationUser CurrentUser= context.ApplicationUsers.Single
                     (c => c.UserName == UsersName);
 
                 Feedback newFeedback = new Feedback
-                {   ApplicationUserID= CurrentUser.Id,
+                {   //collect ID of user object for record
+                    ApplicationUserID = CurrentUser.Id,
                     EntryDate = DateTime.Now,
                     MentorID=addFeedbackViewModel.MentorID,
                     ManagerID=addFeedbackViewModel.ManagerID,                    
@@ -63,12 +68,32 @@ namespace TrainingDay.Controllers
                     ManagerNotes=addFeedbackViewModel.ManagerNotes
                 };
 
+                //add and update database
                 context.Feedbacks.Add(newFeedback);
                 context.SaveChanges();
 
+
+                //find mentor using their ID from the feedback
+                ApplicationUser Mentor = context.ApplicationUsers.Single
+                    (c => c.Id == newFeedback.MentorID);
+                //grab their email
+                string recepientMentor = Mentor.Email;
+                //call email method, passing in address
+                EmailNotification.SendEmail(recepientMentor);
+
+                //find manager using their ID from the feedback
+                ApplicationUser Manager = context.ApplicationUsers.Single
+                    (c => c.Id == newFeedback.ManagerID);
+                //grab their email
+                string recepientManager = Manager.Email;
+                //call email method, passing in address-LOOK AT WAY TO DRY REPEAT
+                EmailNotification.SendEmail(recepientManager);               
+
+                //return to home feedback screen
                 return Redirect("/Feedback");
 
             }
+            //return to form if model does not validate
             return View(addFeedbackViewModel);
         }
 

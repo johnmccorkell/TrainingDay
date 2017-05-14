@@ -1,16 +1,23 @@
 ﻿@model IList<TrainingDay.Models.Feedback>
+<h3>
+<ul>  
 
-<ul>
 
     @foreach (var feedback in Model)
     {
         <li>
-            <a asp-controller="ViewFeedback" asp-action="IndividualFeedback" asp-route-id="@feedback.ID">@feedback.EntryDate</a>
+            <a asp-controller="ViewFeedback" asp-action="IndividualFeedback" asp-route-id="@feedback.ID">
+            @feedback.EntryDate</a>
         </li>
 
     }
 
 </ul>
 
+@if (Model.Count == 0)
+{
+    <p>No Feedback yet!</p>
+}
+</h3>
 
 

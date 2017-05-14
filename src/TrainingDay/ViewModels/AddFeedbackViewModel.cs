@@ -17,8 +17,7 @@ namespace TrainingDay.ViewModels
 
         public ConfidenceRating Confidence { get; set; }
         public List<SelectListItem> ConfidenceRatings { get; set; }
-        
-        //public List<ApplicationUser> UserList { get; set; }
+                
         public List<SelectListItem> Users { get; set; }       
 
 
@@ -47,7 +46,7 @@ namespace TrainingDay.ViewModels
 
         public AddFeedbackViewModel(IEnumerable<ApplicationUser> userList)
         {            
-
+            //create select list for accomplishment options
             AccomplishmentRatings = new List<SelectListItem>();
 
             // <option value="0">Behind</option>
@@ -71,6 +70,7 @@ namespace TrainingDay.ViewModels
                 Text = AccomplishmentRating.Ahead.ToString()
             });
 
+            //create select list for confidence options
             ConfidenceRatings = new List<SelectListItem>();
 
             // <option value="0">Red</option>
@@ -94,6 +94,7 @@ namespace TrainingDay.ViewModels
                 Text = ConfidenceRating.Green.ToString()
             });
 
+            //create select list of users for provider to select their manager and mentor
             Users = new List<SelectListItem>();
 
             foreach (var user in userList)

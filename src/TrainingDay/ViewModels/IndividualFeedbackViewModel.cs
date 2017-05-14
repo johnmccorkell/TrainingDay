@@ -22,6 +22,7 @@ namespace TrainingDay.ViewModels
             CurrentUserId = currentUserID;
             FeedbackProviderName = feedBackProviderName;
 
+            //do not pass in manager notes if logged in user is not the selected maanger
             if (CurrentUserId!=IndividualFeedback.ManagerID)
             {
                 IndividualFeedback.ManagerNotes = null;

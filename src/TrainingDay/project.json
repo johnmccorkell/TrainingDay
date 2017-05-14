@@ -1,4 +1,4 @@
-﻿{
+{
   "userSecretsId": "aspnet-TrainingDay-2ed2c562-db31-48f7-843e-68e92dbec325",
 
   "dependencies": {
@@ -41,10 +41,11 @@
       "version": "1.0.0-preview2-final",
       "type": "build"
     },
-    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc":  {
+    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
       "version": "1.0.0-preview2-final",
       "type": "build"
-    }
+    },
+    "MailKit": "1.16.1"
   },
 
   "tools": {
