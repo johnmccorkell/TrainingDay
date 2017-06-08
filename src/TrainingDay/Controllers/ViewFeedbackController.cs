@@ -62,14 +62,14 @@ namespace TrainingDay.Controllers
             Feedback individualFeedback = context.Feedbacks.Single
                 (m => m.ID == id);
 
-            //use ID of feedback provider
-            ApplicationUser FeedbackProvider = context.ApplicationUsers.Single
-                (c => c.Id == individualFeedback.ApplicationUserID);
-            //convert ID of feedback provider to name
-            string feedbackProviderName = FeedbackProvider.AssociateName;
+            ////use ID of feedback provider
+            //ApplicationUser FeedbackProvider = context.ApplicationUsers.Single
+            //    (c => c.Id == individualFeedback.ApplicationUserID);
+            ////convert ID of feedback provider to name
+            //string feedbackProviderName = FeedbackProvider.AssociateName;
 
             //pass Feedback and provider name to view
-            IndividualFeedbackViewModel individualFeedbackViewModel = new IndividualFeedbackViewModel(individualFeedback, CurrentUserID, feedbackProviderName);
+            IndividualFeedbackViewModel individualFeedbackViewModel = new IndividualFeedbackViewModel(individualFeedback, CurrentUserID);
 
             return View(individualFeedbackViewModel);
 

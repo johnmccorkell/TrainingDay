@@ -57,6 +57,7 @@ namespace TrainingDay.Controllers
                 Feedback newFeedback = new Feedback
                 {   //collect ID of user object for record
                     ApplicationUserID = CurrentUser.Id,
+                    ProviderName=CurrentUser.AssociateName,
                     EntryDate = DateTime.Now,
                     MentorID=addFeedbackViewModel.MentorID,
                     ManagerID=addFeedbackViewModel.ManagerID,                    

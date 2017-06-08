@@ -16,6 +16,8 @@ namespace TrainingDay.Models
         //ID of feedback provider
         public string ApplicationUserID { get; set; }
 
+        public string ProviderName { get; set; }
+
         //ID of the name the provider selects as their mentor
         public string MentorID { get; set; }
 

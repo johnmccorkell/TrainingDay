@@ -10,19 +10,16 @@ namespace TrainingDay.ViewModels
     {
         public Feedback IndividualFeedback { get; set; } 
 
-        public string CurrentUserId { get; set; }
-
-        public string FeedbackProviderName { get; set; }
+        public string CurrentUserId { get; set; }        
 
         public IndividualFeedbackViewModel() { }        
 
-        public IndividualFeedbackViewModel(Feedback individualFeedback, string currentUserID, string feedBackProviderName)
+        public IndividualFeedbackViewModel(Feedback individualFeedback, string currentUserID)
         {
             IndividualFeedback = individualFeedback;
-            CurrentUserId = currentUserID;
-            FeedbackProviderName = feedBackProviderName;
+            CurrentUserId = currentUserID;            
 
-            //do not pass in manager notes if logged in user is not the selected maanger
+            //do not pass in manager notes if logged in user is not the selected manager
             if (CurrentUserId!=IndividualFeedback.ManagerID)
             {
                 IndividualFeedback.ManagerNotes = null;

@@ -1,18 +1,30 @@
 ﻿@model IList<TrainingDay.Models.Feedback>
-<h3>
-<ul>  
 
+ 
 
+<table>
+    <tr>
+        <th width="25%">Date/Time</th>
+        <th>Provider</th>
+        <th>Confidence</th>
+        <th>Accomplishment</th>
+    </tr>    
+    
     @foreach (var feedback in Model)
-    {
-        <li>
-            <a asp-controller="ViewFeedback" asp-action="IndividualFeedback" asp-route-id="@feedback.ID">
-            @feedback.EntryDate</a>
-        </li>
-
+    {<tr>
+       
+         <td><a asp-controller="ViewFeedback" asp-action="IndividualFeedback" asp-route-id="@feedback.ID">
+            @feedback.EntryDate</a></td>
+          <td>@feedback.ProviderName</td>
+          <td>@feedback.Confidence</td>
+           <td>@feedback.Accomplishment</td>
+        
+        
+    </tr>
+        
     }
-
-</ul>
+    
+</table>
 
 @if (Model.Count == 0)
 {
