@@ -68,12 +68,22 @@ namespace TrainingDay.Controllers
             ////convert ID of feedback provider to name
             //string feedbackProviderName = FeedbackProvider.AssociateName;
 
-            //pass Feedback and provider name to view
+            //pass Feedback and current user ID to view
             IndividualFeedbackViewModel individualFeedbackViewModel = new IndividualFeedbackViewModel(individualFeedback, CurrentUserID);
 
             return View(individualFeedbackViewModel);
 
         }
 
+
+        public IActionResult FeedbackByProvider()
+        {
+            FeedbackByProviderViewModel feedBackByProviderViewModel = new FeedbackByProviderViewModel();
+
+
+
+
+            return View();
+        } 
     }
 }

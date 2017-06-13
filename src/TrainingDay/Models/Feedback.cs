@@ -14,15 +14,16 @@ namespace TrainingDay.Models
         public DateTime EntryDate { get; set; }
 
         //ID of feedback provider
-        public string ApplicationUserID { get; set; }
-
+        public string ApplicationUserID { get; set; }         
         public string ProviderName { get; set; }
 
         //ID of the name the provider selects as their mentor
         public string MentorID { get; set; }
+        public string MentorName { get; set; }
 
         //ID of the name the provider selects as their manager
         public string ManagerID { get; set; }
+        public string ManagerName { get; set; }
 
         //focus of provider's training activities or area of concentration
         public string Focus { get; set; }

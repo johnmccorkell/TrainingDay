@@ -255,6 +255,8 @@ C:\Users\mccor\Source\Repos\csharp-exercises\TrainingDay\src\TrainingDay\Data\Mi
 C:\Users\mccor\Source\Repos\csharp-exercises\TrainingDay\src\TrainingDay\Data\Migrations\20170513165439_Simplified.Designer.cs
 C:\Users\mccor\Source\Repos\csharp-exercises\TrainingDay\src\TrainingDay\Data\Migrations\20170607163746_ProviderNameAdded.cs
 C:\Users\mccor\Source\Repos\csharp-exercises\TrainingDay\src\TrainingDay\Data\Migrations\20170607163746_ProviderNameAdded.Designer.cs
+C:\Users\mccor\Source\Repos\csharp-exercises\TrainingDay\src\TrainingDay\Data\Migrations\20170613162334_NameFieldsAdded.cs
+C:\Users\mccor\Source\Repos\csharp-exercises\TrainingDay\src\TrainingDay\Data\Migrations\20170613162334_NameFieldsAdded.Designer.cs
 C:\Users\mccor\Source\Repos\csharp-exercises\TrainingDay\src\TrainingDay\Data\Migrations\ApplicationDbContextModelSnapshot.cs
 C:\Users\mccor\Source\Repos\csharp-exercises\TrainingDay\src\TrainingDay\Models\AccomplishmentRating.cs
 C:\Users\mccor\Source\Repos\csharp-exercises\TrainingDay\src\TrainingDay\Models\ApplicationUser.cs
@@ -281,5 +283,6 @@ C:\Users\mccor\Source\Repos\csharp-exercises\TrainingDay\src\TrainingDay\Service
 C:\Users\mccor\Source\Repos\csharp-exercises\TrainingDay\src\TrainingDay\Services\ISmsSender.cs
 C:\Users\mccor\Source\Repos\csharp-exercises\TrainingDay\src\TrainingDay\Services\MessageServices.cs
 C:\Users\mccor\Source\Repos\csharp-exercises\TrainingDay\src\TrainingDay\ViewModels\AddFeedbackViewModel.cs
+C:\Users\mccor\Source\Repos\csharp-exercises\TrainingDay\src\TrainingDay\ViewModels\FeedbackByProviderViewModel.cs
 C:\Users\mccor\Source\Repos\csharp-exercises\TrainingDay\src\TrainingDay\ViewModels\FeedbackIndexViewModel.cs
 C:\Users\mccor\Source\Repos\csharp-exercises\TrainingDay\src\TrainingDay\ViewModels\IndividualFeedbackViewModel.cs

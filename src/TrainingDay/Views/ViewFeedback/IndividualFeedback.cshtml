@@ -5,6 +5,8 @@
         <h5>
         <p><strong>Entry Time:</strong> @Model.IndividualFeedback.EntryDate</p></br>        
         <p><strong>Provided by:</strong> @Model.IndividualFeedback.ProviderName</p></br> 
+        <p><strong>Mentor:</strong> @Model.IndividualFeedback.MentorName</p></br>
+        <p><strong>Manager:</strong> @Model.IndividualFeedback.ManagerName</p></br>
         <p><strong>Focus Area:</strong> @Model.IndividualFeedback.Focus</p></br> 
         <p><strong>Confidence Rating:</strong> @Model.IndividualFeedback.Confidence</p></br> 
         <p><strong>Accomplishment Rating:</strong> @Model.IndividualFeedback.Accomplishment</p></br> 
@@ -15,4 +17,7 @@
         <p><strong>Manager Notes: </strong>@Model.IndividualFeedback.ManagerNotes</p>}
 
         </h5>
+        
+        <br>
+        <FORM><INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;"></FORM>
     

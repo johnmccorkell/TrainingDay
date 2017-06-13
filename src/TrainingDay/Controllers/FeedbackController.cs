@@ -67,16 +67,13 @@ namespace TrainingDay.Controllers
                     ILikeNotes = addFeedbackViewModel.ILikeNotes,
                     IWishNotes=addFeedbackViewModel.IWishNotes,
                     ManagerNotes=addFeedbackViewModel.ManagerNotes
-                };
-
-                //add and update database
-                context.Feedbacks.Add(newFeedback);
-                context.SaveChanges();
+                };         
 
 
-                //find mentor using their ID from the feedback
+                //find mentorID and name using their ID from the feedback
                 ApplicationUser Mentor = context.ApplicationUsers.Single
                     (c => c.Id == newFeedback.MentorID);
+                newFeedback.MentorName = Mentor.AssociateName;
                 //grab their email
                 string recepientMentor = Mentor.Email;
                 //call email method, passing in address
@@ -85,10 +82,15 @@ namespace TrainingDay.Controllers
                 //find manager using their ID from the feedback
                 ApplicationUser Manager = context.ApplicationUsers.Single
                     (c => c.Id == newFeedback.ManagerID);
+                newFeedback.ManagerName = Manager.AssociateName;
                 //grab their email
                 string recepientManager = Manager.Email;
                 //call email method, passing in address-LOOK AT WAY TO DRY REPEAT
-                EmailNotification.SendEmail(recepientManager);               
+                EmailNotification.SendEmail(recepientManager);
+
+                //add and update database
+                context.Feedbacks.Add(newFeedback);
+                context.SaveChanges();
 
                 //return to home feedback screen
                 return Redirect("/Feedback");
