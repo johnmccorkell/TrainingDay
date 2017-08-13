@@ -36,7 +36,10 @@ namespace TrainingDay.Controllers
         public IActionResult AddFeedback()
         {   
             //create list of users for select list options
-            IEnumerable<ApplicationUser> userList = context.ApplicationUsers.ToList();
+            IEnumerable<ApplicationUser> userList = 
+                context
+                .ApplicationUsers
+                .ToList();
             AddFeedbackViewModel addFeedbackViewModel = new AddFeedbackViewModel(userList);
 
             return View(addFeedbackViewModel);

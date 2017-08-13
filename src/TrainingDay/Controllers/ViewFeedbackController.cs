@@ -7,21 +7,27 @@ using TrainingDay.Models;
 using TrainingDay.Data;
 using Microsoft.AspNetCore.Authorization;
 using TrainingDay.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace TrainingDay.Controllers
 {
     [Authorize]
     public class ViewFeedbackController : Controller
     {
-        private ApplicationDbContext context;
+        private ApplicationDbContext context;       
 
         public ViewFeedbackController(ApplicationDbContext dbContext)
         {
             context = dbContext;
+            
+
         }
+
+
+
         //create filtered list of feedback
         public IActionResult Index()
-        {   
+        {
             //get identity of logged in user
             string UsersName = User.Identity.Name;
             //call database for name of user
@@ -30,22 +36,19 @@ namespace TrainingDay.Controllers
             //collect ID of logged in user
             string CurrentUserID = CurrentUser.Id;
 
-            //create list of saved feedback
-            IList<Feedback> feedbackList = context.Feedbacks.ToList();
+            //create filtered list of saved feedback so only selected manager or mentor can view           
+            List<Feedback> FeedbackList = context
+                .Feedbacks
+                .Where(m => m.ManagerID == CurrentUserID)
+                .Where(mt => mt.MentorID == CurrentUserID)
+                .ToList();          
 
-            //filter for feedback, only make available to pertinent manager/mentor
-            List<Feedback> Feedbacks = new List<Feedback>();
-            foreach (var item in feedbackList)
-            {   //add feedback to list only if ID of current logged in user matches that of manager or mentor
-                if (item.MentorID == CurrentUserID || item.ManagerID == CurrentUserID)
-                {
-                    Feedbacks.Add(item);
-                }
+               return View(FeedbackList);          
 
-            }
-            //pass filtered list to view
-            return View(Feedbacks);
+            
         }
+
+
 
         //view details of individual piece of feedback, passes in ID of selected feedback from view
         public IActionResult IndividualFeedback(int id)
@@ -60,30 +63,17 @@ namespace TrainingDay.Controllers
 
            //find feedback using passed in ID
             Feedback individualFeedback = context.Feedbacks.Single
-                (m => m.ID == id);
-
-            ////use ID of feedback provider
-            //ApplicationUser FeedbackProvider = context.ApplicationUsers.Single
-            //    (c => c.Id == individualFeedback.ApplicationUserID);
-            ////convert ID of feedback provider to name
-            //string feedbackProviderName = FeedbackProvider.AssociateName;
+                (m => m.ID == id);            
 
             //pass Feedback and current user ID to view
             IndividualFeedbackViewModel individualFeedbackViewModel = new IndividualFeedbackViewModel(individualFeedback, CurrentUserID);
 
             return View(individualFeedbackViewModel);
-
         }
 
 
-        public IActionResult FeedbackByProvider()
-        {
-            FeedbackByProviderViewModel feedBackByProviderViewModel = new FeedbackByProviderViewModel();
+        
 
 
-
-
-            return View();
         } 
     }
-}
